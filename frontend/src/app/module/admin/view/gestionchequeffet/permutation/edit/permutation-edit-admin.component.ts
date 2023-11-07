@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 
 import {AbstractEditController} from 'src/app/zynerator/controller/AbstractEditController';
@@ -13,13 +13,16 @@ import {DepotAdminService} from 'src/app/controller/service/admin/commun/DepotAd
 import {ProduitDto} from 'src/app/controller/model/stock/Produit.model';
 import {ProduitAdminService} from 'src/app/controller/service/admin/stock/ProduitAdmin.service';
 import {PermutationItemDto} from 'src/app/controller/model/gestionchequeffet/PermutationItem.model';
-import {PermutationItemAdminService} from 'src/app/controller/service/admin/gestionchequeffet/PermutationItemAdmin.service';
+import {
+    PermutationItemAdminService
+} from 'src/app/controller/service/admin/gestionchequeffet/PermutationItemAdmin.service';
 
 @Component({
-  selector: 'app-permutation-edit-admin',
-  templateUrl: './permutation-edit-admin.component.html'
+    selector: 'app-permutation-edit-admin',
+    templateUrl: './permutation-edit-admin.component.html'
 })
-export class PermutationEditAdminComponent extends AbstractEditController<PermutationDto, PermutationCriteria, PermutationAdminService>   implements OnInit {
+// tslint:disable-next-line:max-line-length
+export class PermutationEditAdminComponent extends AbstractEditController<PermutationDto, PermutationCriteria, PermutationAdminService> implements OnInit {
 
     private _permutationItemsElement = new PermutationItemDto();
 
@@ -31,8 +34,8 @@ export class PermutationEditAdminComponent extends AbstractEditController<Permut
     private _validPermutationItemsDepotDestination = true;
 
 
-
-    constructor( private permutationService: PermutationAdminService , private depotService: DepotAdminService, private produitService: ProduitAdminService, private permutationItemService: PermutationItemAdminService) {
+    // tslint:disable-next-line:max-line-length
+    constructor(private permutationService: PermutationAdminService, private depotService: DepotAdminService, private produitService: ProduitAdminService, private permutationItemService: PermutationItemAdminService) {
         super(permutationService);
     }
 
@@ -40,63 +43,54 @@ export class PermutationEditAdminComponent extends AbstractEditController<Permut
         this.permutationItemsElement.produit = new ProduitDto();
         this.produitService.findAll().subscribe((data) => this.produits = data);
         this.permutationItemsElement.depotOrigine = new DepotDto();
-        this.depotOrigineService.findAll().subscribe((data) => this.depotOrigines = data);
         this.permutationItemsElement.depotDestination = new DepotDto();
-        this.depotDestinationService.findAll().subscribe((data) => this.depotDestinations = data);
 
     }
+
     public prepareEdit() {
         this.item.datePermutation = this.permutationService.format(this.item.datePermutation);
     }
 
 
-
-    public validatePermutationItems(){
+    public validatePermutationItems() {
         this.errorMessages = new Array();
         this.validatePermutationItemsProduit();
         this.validatePermutationItemsQuantite();
         this.validatePermutationItemsDepotOrigine();
         this.validatePermutationItemsDepotDestination();
     }
-    public setValidation(value: boolean){
+
+    public setValidation(value: boolean) {
         this.validPermutationDatePermutation = value;
         this.validPermutationItemsProduit = value;
         this.validPermutationItemsQuantite = value;
         this.validPermutationItemsDepotOrigine = value;
         this.validPermutationItemsDepotDestination = value;
-        }
-   public addPermutationItems() {
-        if( this.item.permutationItems == null )
-            this.item.permutationItems = new Array<PermutationItemDto>();
-       this.validatePermutationItems();
-       if (this.errorMessages.length === 0) {
-            if(this.permutationItemsElement.id == null){
-                this.item.permutationItems.push(this.permutationItemsElement);
-            }else{
-                const index = this.item.permutationItems.findIndex(e => e.id == this.permutationItemsElement.id);
-                this.item.permutationItems[index] = this.permutationItemsElement;
-            }
-          this.permutationItemsElement = new PermutationItemDto();
-       }else{
-            this.messageService.add({severity: 'error',summary: 'Erreurs', detail: 'Merci de corrigé les erreurs suivant : ' + this.errorMessages});
-        }
-   }
+    }
+
+    public addPermutationItems() {
+
+    }
 
     public deletePermutationItems(p: PermutationItemDto) {
         this.item.permutationItems.forEach((element, index) => {
-            if (element === p) { this.item.permutationItems.splice(index, 1); }
+            if (element === p) {
+                this.item.permutationItems.splice(index, 1);
+            }
         });
     }
 
     public editPermutationItems(p: PermutationItemDto) {
-        this.permutationItemsElement = {... p};
+        this.permutationItemsElement = {...p};
         this.activeTab = 0;
     }
-    public validateForm(): void{
+
+    public validateForm(): void {
         this.errorMessages = new Array<string>();
         this.validatePermutationDatePermutation();
     }
-    public validatePermutationDatePermutation(){
+
+    public validatePermutationDatePermutation() {
         if (this.stringUtilService.isEmpty(this.item.datePermutation)) {
             this.errorMessages.push('Date permutation non valide');
             this.validPermutationDatePermutation = false;
@@ -106,33 +100,31 @@ export class PermutationEditAdminComponent extends AbstractEditController<Permut
     }
 
 
-    private validatePermutationItemsProduit(){
-        if (this.permutationItemsElement.produit == null) {
-        this.errorMessages.push('Produit de la permutationItem est  invalide');
-            this.validPermutationItemsProduit = false;
-        } else {
-            this.validPermutationItemsProduit = true;
-        }
+    private validatePermutationItemsProduit() {
+
     }
-    private validatePermutationItemsQuantite(){
+
+    private validatePermutationItemsQuantite() {
         if (this.permutationItemsElement.quantite == null) {
-        this.errorMessages.push('Quantite de la permutationItem est  invalide');
+            this.errorMessages.push('Quantite de la permutationItem est  invalide');
             this.validPermutationItemsQuantite = false;
         } else {
             this.validPermutationItemsQuantite = true;
         }
     }
-    private validatePermutationItemsDepotOrigine(){
+
+    private validatePermutationItemsDepotOrigine() {
         if (this.permutationItemsElement.depotOrigine == null) {
-        this.errorMessages.push('DepotOrigine de la permutationItem est  invalide');
+            this.errorMessages.push('DepotOrigine de la permutationItem est  invalide');
             this.validPermutationItemsDepotOrigine = false;
         } else {
             this.validPermutationItemsDepotOrigine = true;
         }
     }
-    private validatePermutationItemsDepotDestination(){
+
+    private validatePermutationItemsDepotDestination() {
         if (this.permutationItemsElement.depotDestination == null) {
-        this.errorMessages.push('DepotDestination de la permutationItem est  invalide');
+            this.errorMessages.push('DepotDestination de la permutationItem est  invalide');
             this.validPermutationItemsDepotDestination = false;
         } else {
             this.validPermutationItemsDepotDestination = true;
@@ -140,65 +132,83 @@ export class PermutationEditAdminComponent extends AbstractEditController<Permut
     }
 
 
-   get depotDestination(): DepotDto {
-       return this.depotService.item;
-   }
-  set depotDestination(value: DepotDto) {
+    get depotDestination(): DepotDto {
+        return this.depotService.item;
+    }
+
+    set depotDestination(value: DepotDto) {
         this.depotService.item = value;
-   }
-   get depotDestinations(): Array<DepotDto> {
+    }
+
+    get depotDestinations(): Array<DepotDto> {
         return this.depotService.items;
-   }
-   set depotDestinations(value: Array<DepotDto>) {
+    }
+
+    set depotDestinations(value: Array<DepotDto>) {
         this.depotService.items = value;
-   }
-   get createDepotDestinationDialog(): boolean {
-       return this.depotService.createDialog;
-   }
-  set createDepotDestinationDialog(value: boolean) {
-       this.depotService.createDialog= value;
-   }
-   get depotOrigine(): DepotDto {
-       return this.depotService.item;
-   }
-  set depotOrigine(value: DepotDto) {
+    }
+
+    get createDepotDestinationDialog(): boolean {
+        return this.depotService.createDialog;
+    }
+
+    set createDepotDestinationDialog(value: boolean) {
+        this.depotService.createDialog = value;
+    }
+
+    get depotOrigine(): DepotDto {
+        return this.depotService.item;
+    }
+
+    set depotOrigine(value: DepotDto) {
         this.depotService.item = value;
-   }
-   get depotOrigines(): Array<DepotDto> {
+    }
+
+    get depotOrigines(): Array<DepotDto> {
         return this.depotService.items;
-   }
-   set depotOrigines(value: Array<DepotDto>) {
+    }
+
+    set depotOrigines(value: Array<DepotDto>) {
         this.depotService.items = value;
-   }
-   get createDepotOrigineDialog(): boolean {
-       return this.depotService.createDialog;
-   }
-  set createDepotOrigineDialog(value: boolean) {
-       this.depotService.createDialog= value;
-   }
-   get produit(): ProduitDto {
-       return this.produitService.item;
-   }
-  set produit(value: ProduitDto) {
+    }
+
+    get createDepotOrigineDialog(): boolean {
+        return this.depotService.createDialog;
+    }
+
+    set createDepotOrigineDialog(value: boolean) {
+        this.depotService.createDialog = value;
+    }
+
+    get produit(): ProduitDto {
+        return this.produitService.item;
+    }
+
+    set produit(value: ProduitDto) {
         this.produitService.item = value;
-   }
-   get produits(): Array<ProduitDto> {
+    }
+
+    get produits(): Array<ProduitDto> {
         return this.produitService.items;
-   }
-   set produits(value: Array<ProduitDto>) {
+    }
+
+    set produits(value: Array<ProduitDto>) {
         this.produitService.items = value;
-   }
-   get createProduitDialog(): boolean {
-       return this.produitService.createDialog;
-   }
-  set createProduitDialog(value: boolean) {
-       this.produitService.createDialog= value;
-   }
+    }
+
+    get createProduitDialog(): boolean {
+        return this.produitService.createDialog;
+    }
+
+    set createProduitDialog(value: boolean) {
+        this.produitService.createDialog = value;
+    }
 
     get permutationItemsElement(): PermutationItemDto {
-        if( this._permutationItemsElement == null )
+        if (this._permutationItemsElement == null) {
             this._permutationItemsElement = new PermutationItemDto();
-         return this._permutationItemsElement;
+        }
+        return this._permutationItemsElement;
     }
 
     set permutationItemsElement(value: PermutationItemDto) {
@@ -208,6 +218,7 @@ export class PermutationEditAdminComponent extends AbstractEditController<Permut
     get validPermutationDatePermutation(): boolean {
         return this._validPermutationDatePermutation;
     }
+
     set validPermutationDatePermutation(value: boolean) {
         this._validPermutationDatePermutation = value;
     }
@@ -215,24 +226,31 @@ export class PermutationEditAdminComponent extends AbstractEditController<Permut
     get validPermutationItemsProduit(): boolean {
         return this._validPermutationItemsProduit;
     }
+
     set validPermutationItemsProduit(value: boolean) {
         this._validPermutationItemsProduit = value;
     }
+
     get validPermutationItemsQuantite(): boolean {
         return this._validPermutationItemsQuantite;
     }
+
     set validPermutationItemsQuantite(value: boolean) {
         this._validPermutationItemsQuantite = value;
     }
+
     get validPermutationItemsDepotOrigine(): boolean {
         return this._validPermutationItemsDepotOrigine;
     }
+
     set validPermutationItemsDepotOrigine(value: boolean) {
         this._validPermutationItemsDepotOrigine = value;
     }
+
     get validPermutationItemsDepotDestination(): boolean {
         return this._validPermutationItemsDepotDestination;
     }
+
     set validPermutationItemsDepotDestination(value: boolean) {
         this._validPermutationItemsDepotDestination = value;
     }
