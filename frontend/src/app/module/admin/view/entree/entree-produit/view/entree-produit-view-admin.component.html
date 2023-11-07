@@ -14,11 +14,11 @@
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="3">{{'entreeProduit.fournisseur' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'entreeProduit.fournisseur' | translate}}" autofocus  id="3" [(ngModel)]="item.fournisseur?.id">
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'entreeProduit.fournisseur' | translate}}" autofocus  id="3" [(ngModel)]="item.fournisseur.id">
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="4">{{'entreeProduit.depot' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'entreeProduit.depot' | translate}}" autofocus  id="4" [(ngModel)]="item.depot?.libelle">
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'entreeProduit.depot' | translate}}" autofocus  id="4" [(ngModel)]="item.depot.libelle">
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="5">{{'entreeProduit.description' | translate}}</label>
@@ -41,7 +41,7 @@
                                 </ng-template>
                                 <ng-template pTemplate="body" let-p>
                                     <tr>
-                                        <td>{{p.produit?.reference}}</td>
+                                        <td>{{p.produit.reference}}</td>
                                         <td>{{p.quantite}}</td>
                                         <td>{{p.description}}</td>
                                     </tr>

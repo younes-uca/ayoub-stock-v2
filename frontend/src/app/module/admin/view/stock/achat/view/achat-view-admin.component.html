@@ -6,7 +6,7 @@
                 <div class="grid">
                     <div class="field col-12 md:col-6">
                         <label for="1">{{'achat.entrepriseSociete' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'achat.entrepriseSociete' | translate}}" autofocus  id="1" [(ngModel)]="item.entrepriseSociete?.nom">
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'achat.entrepriseSociete' | translate}}" autofocus  id="1" [(ngModel)]="item.entrepriseSociete.nom">
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="2">{{'achat.dateFacture' | translate}}</label>
@@ -14,11 +14,11 @@
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="3">{{'achat.fournisseur' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'achat.fournisseur' | translate}}" autofocus  id="3" [(ngModel)]="item.fournisseur?.id">
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'achat.fournisseur' | translate}}" autofocus  id="3" [(ngModel)]="item.fournisseur.id">
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="4">{{'achat.etatAchat' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'achat.etatAchat' | translate}}" autofocus  id="4" [(ngModel)]="item.etatAchat?.libelle">
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'achat.etatAchat' | translate}}" autofocus  id="4" [(ngModel)]="item.etatAchat.libelle">
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="5">{{'achat.montantHt' | translate}}</label>
@@ -68,7 +68,7 @@
                                     <tr>
                                         <td>{{p.barCode}}</td>
                                         <td>{{p.footerBarCode}}</td>
-                                        <td>{{p.produit?.reference}}</td>
+                                        <td>{{p.produit.reference}}</td>
                                         <td>{{p.quantite}}</td>
                                         <td>{{p.quantiteAvoir}}</td>
                                         <td>{{p.quantiteDisponible}}</td>
@@ -77,7 +77,7 @@
                                         <td>{{p.prixUht}}</td>
                                         <td>{{p.montantHt}}</td>
                                         <td>{{p.montantTtc}}</td>
-                                        <td>{{p.depot?.libelle}}</td>
+                                        <td>{{p.depot.libelle}}</td>
                                     </tr>
                                 </ng-template>
                             </p-table>
@@ -99,7 +99,7 @@
                                 </ng-template>
                                 <ng-template pTemplate="body" let-p>
                                     <tr>
-                                        <td>{{p.entrepriseSociete?.nom}}</td>
+                                        <td>{{p.entrepriseSociete.nom}}</td>
                                         <td>{{p.dateAvoir | date: dateFormatColumn}}</td>
                                         <td>{{p.montant}}</td>
                                     </tr>

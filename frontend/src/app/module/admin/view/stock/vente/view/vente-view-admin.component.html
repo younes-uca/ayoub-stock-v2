@@ -6,7 +6,7 @@
                 <div class="grid">
                     <div class="field col-12 md:col-6">
                         <label for="1">{{'vente.entrepriseSociete' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'vente.entrepriseSociete' | translate}}" autofocus  id="1" [(ngModel)]="item.entrepriseSociete?.nom">
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'vente.entrepriseSociete' | translate}}" autofocus  id="1" [(ngModel)]="item.entrepriseSociete.nom">
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="2">{{'vente.codeVente' | translate}}</label>
@@ -14,11 +14,11 @@
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="3">{{'vente.client' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'vente.client' | translate}}" autofocus  id="3" [(ngModel)]="item.client?.id">
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'vente.client' | translate}}" autofocus  id="3" [(ngModel)]="item.client.id">
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="4">{{'vente.etatVente' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'vente.etatVente' | translate}}" autofocus  id="4" [(ngModel)]="item.etatVente?.libelle">
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'vente.etatVente' | translate}}" autofocus  id="4" [(ngModel)]="item.etatVente.libelle">
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="5">{{'vente.montantHt' | translate}}</label>
@@ -66,7 +66,7 @@
                                 <ng-template pTemplate="body" let-p>
                                     <tr>
                                         <td>{{p.barCode}}</td>
-                                        <td>{{p.produit?.reference}}</td>
+                                        <td>{{p.produit.reference}}</td>
                                         <td>{{p.quantite}}</td>
                                         <td>{{p.quantiteAvoir}}</td>
                                         <td>{{p.quantiteVendue}}</td>
@@ -75,7 +75,7 @@
                                         <td>{{p.prixUht}}</td>
                                         <td>{{p.montantHt}}</td>
                                         <td>{{p.montantTtc}}</td>
-                                        <td>{{p.depot?.libelle}}</td>
+                                        <td>{{p.depot.libelle}}</td>
                                     </tr>
                                 </ng-template>
                             </p-table>
@@ -97,7 +97,7 @@
                                 </ng-template>
                                 <ng-template pTemplate="body" let-p>
                                     <tr>
-                                        <td>{{p.entrepriseSociete?.nom}}</td>
+                                        <td>{{p.entrepriseSociete.nom}}</td>
                                         <td>{{p.dateAvoir | date: dateFormatColumn}}</td>
                                         <td>{{p.montant}}</td>
                                     </tr>

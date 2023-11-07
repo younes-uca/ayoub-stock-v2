@@ -6,7 +6,7 @@
                 <div class="grid">
                     <div class="field col-12 md:col-6">
                         <label for="1">{{'inventaire.entrepriseSociete' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'inventaire.entrepriseSociete' | translate}}" autofocus  id="1" [(ngModel)]="item.entrepriseSociete?.nom">
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'inventaire.entrepriseSociete' | translate}}" autofocus  id="1" [(ngModel)]="item.entrepriseSociete.nom">
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="2">{{'inventaire.reference' | translate}}</label>
@@ -37,7 +37,7 @@
                                 </ng-template>
                                 <ng-template pTemplate="body" let-p>
                                     <tr>
-                                        <td>{{p.produit?.reference}}</td>
+                                        <td>{{p.produit.reference}}</td>
                                         <td>{{p.quantiteEstime}}</td>
                                         <td>{{p.quantiteReelle}}</td>
                                     </tr>

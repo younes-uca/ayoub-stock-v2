@@ -6,7 +6,7 @@
                 <div class="grid">
                     <div class="field col-12 md:col-6">
                         <label for="1">{{'avoirAchatItem.produit' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'avoirAchatItem.produit' | translate}}" autofocus  id="1" [(ngModel)]="item.produit?.reference">
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'avoirAchatItem.produit' | translate}}" autofocus  id="1" [(ngModel)]="item.produit.reference">
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="2">{{'avoirAchatItem.montantAvoir' | translate}}</label>
@@ -18,11 +18,11 @@
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="4">{{'avoirAchatItem.depot' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'avoirAchatItem.depot' | translate}}" autofocus  id="4" [(ngModel)]="item.depot?.libelle">
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'avoirAchatItem.depot' | translate}}" autofocus  id="4" [(ngModel)]="item.depot.libelle">
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="5">{{'avoirAchatItem.avoirAchat' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'avoirAchatItem.avoirAchat' | translate}}" autofocus  id="5" [(ngModel)]="item.avoirAchat?.id">
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'avoirAchatItem.avoirAchat' | translate}}" autofocus  id="5" [(ngModel)]="item.avoirAchat.id">
                     </div>
                 </div>
             </p-tabPanel>

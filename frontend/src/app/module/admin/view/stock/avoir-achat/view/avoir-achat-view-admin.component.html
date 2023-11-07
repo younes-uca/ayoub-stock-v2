@@ -6,7 +6,7 @@
                 <div class="grid">
                     <div class="field col-12 md:col-6">
                         <label for="1">{{'avoirAchat.entrepriseSociete' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'avoirAchat.entrepriseSociete' | translate}}" autofocus  id="1" [(ngModel)]="item.entrepriseSociete?.nom">
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'avoirAchat.entrepriseSociete' | translate}}" autofocus  id="1" [(ngModel)]="item.entrepriseSociete.nom">
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="2">{{'avoirAchat.dateAvoir' | translate}}</label>
@@ -18,7 +18,7 @@
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="4">{{'avoirAchat.achat' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'avoirAchat.achat' | translate}}" autofocus  id="4" [(ngModel)]="item.achat?.id">
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'avoirAchat.achat' | translate}}" autofocus  id="4" [(ngModel)]="item.achat.id">
                     </div>
                 </div>
             </p-tabPanel>
@@ -38,10 +38,10 @@
                                 </ng-template>
                                 <ng-template pTemplate="body" let-p>
                                     <tr>
-                                        <td>{{p.produit?.reference}}</td>
+                                        <td>{{p.produit.reference}}</td>
                                         <td>{{p.montantAvoir}}</td>
                                         <td>{{p.quantite}}</td>
-                                        <td>{{p.depot?.libelle}}</td>
+                                        <td>{{p.depot.libelle}}</td>
                                     </tr>
                                 </ng-template>
                             </p-table>

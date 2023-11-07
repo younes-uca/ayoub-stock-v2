@@ -14,7 +14,7 @@
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="3">{{'achatItem.produit' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'achatItem.produit' | translate}}" autofocus  id="3" [(ngModel)]="item.produit?.reference">
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'achatItem.produit' | translate}}" autofocus  id="3" [(ngModel)]="item.produit.reference">
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="4">{{'achatItem.quantite' | translate}}</label>
@@ -50,11 +50,11 @@
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="12">{{'achatItem.achat' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'achatItem.achat' | translate}}" autofocus  id="12" [(ngModel)]="item.achat?.id">
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'achatItem.achat' | translate}}" autofocus  id="12" [(ngModel)]="item.achat.id">
                     </div>
                     <div class="field col-12 md:col-6">
                         <label for="13">{{'achatItem.depot' | translate}}</label>
-                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'achatItem.depot' | translate}}" autofocus  id="13" [(ngModel)]="item.depot?.libelle">
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'achatItem.depot' | translate}}" autofocus  id="13" [(ngModel)]="item.depot.libelle">
                     </div>
                 </div>
             </p-tabPanel>
