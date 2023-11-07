@@ -20,7 +20,6 @@ import { EtatAchatListAdminComponent } from './etat-achat/list/etat-achat-list-a
 import { MarqueListAdminComponent } from './marque/list/marque-list-admin.component';
 import { EntrepriseSocieteListAdminComponent } from './entreprise-societe/list/entreprise-societe-list-admin.component';
 import { EtatVenteListAdminComponent } from './etat-vente/list/etat-vente-list-admin.component';
-import { DepotListAdminComponent } from './depot/list/depot-list-admin.component';
 @NgModule({
     imports: [
         RouterModule.forChild(

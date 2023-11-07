@@ -36,10 +36,6 @@ import { CategorieCreateAdminComponent } from './categorie/create/categorie-crea
 import { CategorieEditAdminComponent } from './categorie/edit/categorie-edit-admin.component';
 import { CategorieViewAdminComponent } from './categorie/view/categorie-view-admin.component';
 import { CategorieListAdminComponent } from './categorie/list/categorie-list-admin.component';
-import { DepotCreateAdminComponent } from './depot/create/depot-create-admin.component';
-import { DepotEditAdminComponent } from './depot/edit/depot-edit-admin.component';
-import { DepotViewAdminComponent } from './depot/view/depot-view-admin.component';
-import { DepotListAdminComponent } from './depot/list/depot-list-admin.component';
 import { VilleCreateAdminComponent } from './ville/create/ville-create-admin.component';
 import { VilleEditAdminComponent } from './ville/edit/ville-edit-admin.component';
 import { VilleViewAdminComponent } from './ville/view/ville-view-admin.component';
